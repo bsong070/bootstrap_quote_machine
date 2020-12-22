@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang = "en" >
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        
+        <title>Random Quote Generator</title>
+        <script>
+            const QUOTEBANK = [
+            {
+            
+            quote: "The greatest glory in living lies not in never falling, but in rising every time we fall.",
+            author: "Nelson Mandela"
+        }, {
+            quote: "The way to get started is to quit talking and begin doing.",
+            author: "Walt Disney"
+        }, {
+            quote: "Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma – which is living with the results of other people's thinking.",
+            author: "Steve Jobs"
+        } , {
+            quote: "If life were predictable it would cease to be life, and be without flavor.",
+            author: "Eleanor Roosevelt"
+        } , {
+            quote: "If you look at what you have in life, you'll always have more. If you look at what you don't have in life, you'll never have enough.",
+            author: "Oprah Winfrey"
+        }
+            ]
+
+
+            window.onload = inital;
+
+            function inital() {
+                generateQuote()
+            }
+
+            function generateQuote() {
+                let randomGenerate = Math.floor(Math.random()*QUOTEBANK.length);
+                let randomQuote = QUOTEBANK[randomGenerate];
+                let twitterLink = "https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text="
+                //Quote
+                let quoteInAPIFormat = randomQuote.quote.replace(/\s/g,"%20"); 
+
+                twitterLink += quoteInAPIFormat;
+                //Author
+                let authorInAPIFormat = randomQuote.author.replace(/\s/g,"%20"); 
+
+                twitterLink += ' - ' + authorInAPIFormat;
+                
+
+
+                document.getElementById('tweet-quote').href = twitterLink;
+                document.getElementById('text').innerText = randomQuote.quote;
+                document.getElementById('author').innerText = randomQuote.author;
+            }
+
+
+        </script>
+
+
+
+    </head>
+
+    <body>
+        <wrapper id="quote-box" />
+            <div id="text"></div>
+            <div id="author"></div>
+            <button  id="new-quote" onClick="generateQuote()">New Quote</button>
+            <a class = 'btn btn-primary' target="_blank"  id="tweet-quote">Tweet Quote</a>
+            
+        <script src = "https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    </body>
+</html> 
