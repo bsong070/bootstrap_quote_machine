@@ -63,11 +63,21 @@
     </head>
 
     <body>
-        <wrapper id="quote-box" />
-            <div id="text"></div>
-            <div id="author"></div>
-            <button  id="new-quote" onClick="generateQuote()">New Quote</button>
-            <a class = 'btn btn-primary' target="_blank"  id="tweet-quote">Tweet Quote</a>
+        <div class="container">
+
+                <wrapper id="quote-box">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">    <div id="text"></div></h5>
+                  <p class="card-text">  <div id="author"></div></p>
+                  <button  id="new-quote" class = 'btn btn-success' onClick="generateQuote()" >New Quote</button>
+                  <a class = 'btn btn-primary' target="_blank"  id="tweet-quote">Tweet Quote</a>
+                </div>
+              </div>
+            </div>
+        </wrapper>
+
+
             
         <script src = "https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 
